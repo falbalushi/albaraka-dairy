@@ -9,8 +9,8 @@ const WA_ICON = (
 /* ── SVG Circular Badge Logo ── */
 const AlbarakaLogo = () => (
   <svg
-    width="52"
-    height="52"
+    width="72"
+    height="72"
     viewBox="0 0 120 120"
     xmlns="http://www.w3.org/2000/svg"
     style={{ flexShrink: 0, filter: 'drop-shadow(0 2px 6px rgba(0,0,0,0.18))' }}

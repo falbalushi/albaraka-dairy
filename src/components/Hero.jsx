@@ -68,8 +68,8 @@ export default function Hero({ t, lang, mode }) {
         background: mode === 'dark'
           ? 'rgba(5,5,20,0.55)'
           : 'rgba(255,255,255,0.45)',
-        backdropFilter: 'blur(12px)',
-        WebkitBackdropFilter: 'blur(12px)',
+        backdropFilter: 'blur(4px)',
+        WebkitBackdropFilter: 'blur(4px)',
         borderRadius: '24px',
         border: mode === 'dark'
           ? '1px solid rgba(232,168,48,0.2)'
@@ -79,6 +79,14 @@ export default function Hero({ t, lang, mode }) {
           : '0 8px 48px rgba(0,0,0,0.15)',
         transition: 'background 0.8s, border-color 0.8s, box-shadow 0.8s',
       }}>
+        {/* Large logo in hero */}
+        <img
+          src="/logo.png"
+          alt="Albaraka Dairy Farm"
+          onError={(e) => { e.target.style.display = 'none' }}
+          style={{ width: '160px', height: '160px', marginBottom: '1rem', filter: 'drop-shadow(0 4px 16px rgba(0,0,0,0.4))' }}
+        />
+
         <div className={`hero-badge ${lang === 'ar' ? 'ar' : ''}`}>{t.badge}</div>
 
         <h1 className="hero-title" style={{ textShadow: mode === 'dark' ? '0 2px 12px rgba(0,0,0,0.8)' : '0 2px 8px rgba(0,0,0,0.15)' }}>
