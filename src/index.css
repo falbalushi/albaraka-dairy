@@ -296,9 +296,11 @@ body {
 }
 .stock-in  { background: var(--stock-in-bg); color: var(--stock-in-txt); }
 .stock-low { background: var(--stock-lo-bg); color: var(--stock-lo-txt); }
+.stock-out { background: rgba(183,28,28,0.15); color: #EF9A9A; }
 .stock-dot { width: 7px; height: 7px; border-radius: 50%; animation: pulse 2s infinite; }
 .dot-green  { background: #5CB87A; }
 .dot-orange { background: #FF8A65; }
+.dot-red    { background: #E53935; }
 @keyframes pulse { 0%,100%{opacity:1;} 50%{opacity:0.3;} }
 
 .stock-row { display: flex; align-items: baseline; gap: 6px; margin-bottom: 1.4rem; }

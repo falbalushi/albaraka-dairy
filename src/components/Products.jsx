@@ -6,7 +6,7 @@ const WA_ICON = (
   </svg>
 )
 
-function ProductCard({ icon, name, size, perLabel, status, statusType, count, stockLabel, bookLabel, waLabel, onBook, onWA, lang, delay }) {
+function ProductCard({ icon, name, size, perLabel, statusIn, statusLow, statusOut, count, stockLabel, bookLabel, waLabel, onBook, onWA, lang, delay }) {
   const ref = useRef(null)
   useEffect(() => {
     const el = ref.current
@@ -26,9 +26,9 @@ function ProductCard({ icon, name, size, perLabel, status, statusType, count, st
       <div className="product-price">
         1.500 OMR <span>{perLabel}</span>
       </div>
-      <div className={`stock-badge ${statusType === 'in' ? 'stock-in' : 'stock-low'}`}>
-        <div className={`stock-dot ${statusType === 'in' ? 'dot-green' : 'dot-orange'}`} />
-        <span className={lang === 'ar' ? 'ar' : ''}>{status}</span>
+      <div className={`stock-badge ${count === 0 ? 'stock-out' : count <= 5 ? 'stock-low' : 'stock-in'}`}>
+        <div className={`stock-dot ${count === 0 ? 'dot-red' : count <= 5 ? 'dot-orange' : 'dot-green'}`} />
+        <span className={lang === 'ar' ? 'ar' : ''}>{count === 0 ? statusOut : count <= 5 ? statusLow : statusIn}</span>
       </div>
       <div className="stock-row">
         <span className="stock-count">{count}</span>
@@ -81,8 +81,9 @@ export default function Products({ t, lang, stock, mode, onBook, onWA }) {
               name={t.p1Name}
               size={t.pSize}
               perLabel={t.pPer}
-              status={t.p1Status}
-              statusType="in"
+              statusIn={t.statusIn}
+              statusLow={t.statusLow}
+              statusOut={t.statusOut}
               count={stock.milk}
               stockLabel={t.pAvail}
               bookLabel={t.bookBtn}
@@ -97,8 +98,9 @@ export default function Products({ t, lang, stock, mode, onBook, onWA }) {
               name={t.p2Name}
               size={t.pSize}
               perLabel={t.pPer}
-              status={t.p2Status}
-              statusType="low"
+              statusIn={t.statusIn}
+              statusLow={t.statusLow}
+              statusOut={t.statusOut}
               count={stock.laban}
               stockLabel={t.pAvail}
               bookLabel={t.bookBtn}
