@@ -23,7 +23,7 @@ export default function App() {
   // Fetch stock from Google Sheets API (real-time, no caching)
   useEffect(() => {
     const fetchStock = () => {
-      fetch(`https://sheets.googleapis.com/v4/spreadsheets/${SHEET_ID}/values/Sheet1!A1:B10?key=${API_KEY}`)
+      fetch(`https://sheets.googleapis.com/v4/spreadsheets/${SHEET_ID}/values/Sheet1!A2:B10?key=${API_KEY}`)
         .then(r => r.json())
         .then(data => {
           const rows = data.values || []
