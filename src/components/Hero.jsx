@@ -20,7 +20,7 @@ export default function Hero({ t, lang, mode }) {
         filter: mode === 'dark' ? 'brightness(0.35) saturate(0.6)' : 'brightness(1) saturate(1.05)',
       }} />
 
-      {/* Night overlay — deep blue tint in dark mode */}
+      {/* Night overlay */}
       <div style={{
         position: 'absolute', inset: 0,
         background: mode === 'dark'
@@ -61,52 +61,58 @@ export default function Hero({ t, lang, mode }) {
         </div>
       )}
 
-      {/* Text content */}
-      <div style={{
+      {/* ── DESKTOP text content (centered) ── */}
+      <div className="hero-desktop-content" style={{
         position: 'relative', zIndex: 10,
         maxWidth: '700px', textAlign: 'center',
         padding: '2.5rem 2rem',
-        background: mode === 'dark'
-          ? 'rgba(5,5,20,0.55)'
-          : 'rgba(255,255,255,0.45)',
-        backdropFilter: 'none',
-        WebkitBackdropFilter: 'none',
+        background: mode === 'dark' ? 'rgba(5,5,20,0.55)' : 'rgba(255,255,255,0.45)',
         borderRadius: '24px',
-        border: mode === 'dark'
-          ? '1px solid rgba(232,168,48,0.2)'
-          : '1px solid rgba(255,255,255,0.6)',
-        boxShadow: mode === 'dark'
-          ? '0 8px 48px rgba(0,0,0,0.6)'
-          : '0 8px 48px rgba(0,0,0,0.15)',
+        border: mode === 'dark' ? '1px solid rgba(232,168,48,0.2)' : '1px solid rgba(255,255,255,0.6)',
+        boxShadow: mode === 'dark' ? '0 8px 48px rgba(0,0,0,0.6)' : '0 8px 48px rgba(0,0,0,0.15)',
         transition: 'background 0.8s, border-color 0.8s, box-shadow 0.8s',
       }}>
-        {/* Large logo in hero */}
         <img
           src="/logo.png"
           alt="Albaraka Dairy Farm"
           onError={(e) => { e.target.style.display = 'none' }}
           style={{ width: '160px', height: '160px', marginBottom: '1rem', filter: 'drop-shadow(0 4px 16px rgba(0,0,0,0.4))' }}
         />
-
         <div className={`hero-badge ${lang === 'ar' ? 'ar' : ''}`}>{t.badge}</div>
-
         <h1 className="hero-title" style={{ textShadow: mode === 'dark' ? '0 2px 12px rgba(0,0,0,0.8)' : '0 2px 8px rgba(0,0,0,0.15)' }}>
           {t.heroTitle1} <span className="accent">{t.heroAccent}</span>
-          <br />
-          {t.heroTitle2}
+          <br />{t.heroTitle2}
         </h1>
-
         <p className={`hero-sub ${lang === 'ar' ? 'ar' : ''}`}>{t.heroSub}</p>
-
         <div className="hero-btns">
-          <button className="btn-primary" onClick={scrollToProducts}>
-            {t.heroBtnPrimary}
-          </button>
-          <button className="btn-secondary" onClick={scrollToContact}>
-            {t.heroBtnSecondary}
-          </button>
+          <button className="btn-primary" onClick={scrollToProducts}>{t.heroBtnPrimary}</button>
+          <button className="btn-secondary" onClick={scrollToContact}>{t.heroBtnSecondary}</button>
         </div>
       </div>
+
+      {/* ── MOBILE text content (pinned to bottom) ── */}
+      <div className="hero-mobile-content" style={{
+        position: 'absolute', bottom: 0, left: 0, right: 0,
+        zIndex: 10, textAlign: 'center',
+        padding: '2rem 1.5rem 2.5rem',
+        background: 'linear-gradient(0deg, rgba(0,0,0,0.75) 0%, rgba(0,0,0,0.4) 70%, transparent 100%)',
+      }}>
+        <div className={`hero-badge ${lang === 'ar' ? 'ar' : ''}`} style={{ marginBottom: '0.6rem' }}>{t.badge}</div>
+        <h1 className="hero-title" style={{
+          fontSize: 'clamp(1.6rem, 7vw, 2.4rem)',
+          color: '#fff',
+          textShadow: '0 2px 12px rgba(0,0,0,0.8)',
+          marginBottom: '0.5rem',
+        }}>
+          {t.heroTitle1} <span className="accent">{t.heroAccent}</span>
+          <br />{t.heroTitle2}
+        </h1>
+        <div className="hero-btns" style={{ marginTop: '1rem' }}>
+          <button className="btn-primary" onClick={scrollToProducts}>{t.heroBtnPrimary}</button>
+          <button className="btn-secondary" style={{ color: '#fff', borderColor: 'rgba(255,255,255,0.6)' }} onClick={scrollToContact}>{t.heroBtnSecondary}</button>
+        </div>
+      </div>
+
     </section>
   )
 }
