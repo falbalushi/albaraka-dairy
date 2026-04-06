@@ -41,7 +41,6 @@ export default function Hero({ t, lang, mode }) {
       <svg
         viewBox="0 0 1440 900"
         preserveAspectRatio="xMidYMid slice"
-        className="hero-scene-svg"
         style={{
           position: 'absolute',
           inset: 0,

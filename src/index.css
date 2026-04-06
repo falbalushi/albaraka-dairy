@@ -469,12 +469,6 @@ footer .gold { color: var(--gold); }
 @media (max-width: 600px) {
   .hero-desktop-content { display: none; }
   .hero-mobile-content  { display: block; }
-  /* Shift SVG scene to show fort + buffalo on mobile portrait */
-  .hero-scene-svg {
-    width: 200% !important;
-    left: -25% !important;
-    right: auto !important;
-  }
 }
 
 /* ─── RESPONSIVE ─────────────────────────────────── */
