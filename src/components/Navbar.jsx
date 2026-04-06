@@ -10,7 +10,7 @@ const AlbarakaLogo = () => (
   <img
     src="/logo.png"
     alt="Albaraka Dairy Farm"
-    style={{ width: '72px', height: '72px', objectFit: 'contain', flexShrink: 0, filter: 'drop-shadow(0 2px 6px rgba(0,0,0,0.18))' }}
+    style={{ width: '100px', height: '100px', objectFit: 'contain', flexShrink: 0 }}
   />
 )
 
@@ -21,10 +21,6 @@ export default function Navbar({ t, lang, setLang, mode, toggleMode }) {
     <nav className="navbar">
       <div className="logo-row">
         <AlbarakaLogo />
-        <div>
-          <div className={`logo-name ${lang === 'ar' ? 'ar' : ''}`}>{t.logoName}</div>
-          <div className={`logo-tag ${lang === 'ar' ? 'ar' : ''}`}>{t.logoTag}</div>
-        </div>
       </div>
 
       <div className="nav-right">

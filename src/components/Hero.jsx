@@ -72,13 +72,7 @@ export default function Hero({ t, lang, mode }) {
         boxShadow: mode === 'dark' ? '0 8px 48px rgba(0,0,0,0.6)' : '0 8px 48px rgba(0,0,0,0.15)',
         transition: 'background 0.8s, border-color 0.8s, box-shadow 0.8s',
       }}>
-        <img
-          src="/logo.png"
-          alt="Albaraka Dairy Farm"
-          onError={(e) => { e.target.style.display = 'none' }}
-          style={{ width: '160px', height: '160px', marginBottom: '1rem', filter: 'drop-shadow(0 4px 16px rgba(0,0,0,0.4))' }}
-        />
-        <div className={`hero-badge ${lang === 'ar' ? 'ar' : ''}`}>{t.badge}</div>
+<div className={`hero-badge ${lang === 'ar' ? 'ar' : ''}`}>{t.badge}</div>
         <h1 className="hero-title" style={{ textShadow: mode === 'dark' ? '0 2px 12px rgba(0,0,0,0.8)' : '0 2px 8px rgba(0,0,0,0.15)' }}>
           {t.heroTitle1} <span className="accent">{t.heroAccent}</span>
           <br />{t.heroTitle2}
