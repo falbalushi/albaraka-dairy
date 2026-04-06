@@ -17,7 +17,7 @@ export default function App() {
 
   const t = translations[lang]
 
-  const SHEET_ID = '1OhDDI3Xiwb2pVtQUmvue8NjLi8d56aBrrrv82OtLSvY'
+  const SHEET_ID = '1OhDDI3Xxwb2pVtQUmvue8NjLi8d56aBrrrv82OtLSvY'
   const API_KEY  = 'AIzaSyAY8ncDPVyL-CJ9u-itPjlsixq9HCghXWU'
 
   // Fetch stock from Google Sheets API (real-time, no caching)
