@@ -46,7 +46,7 @@ export default function App() {
   useEffect(() => {
     document.documentElement.className = mode
     document.body.style.direction = lang === 'ar' ? 'rtl' : 'ltr'
-    document.body.style.fontFamily = lang === 'ar' ? "'Tajawal', sans-serif" : "'DM Sans', sans-serif"
+    document.body.style.fontFamily = lang === 'ar' ? "'Tajawal', sans-serif" : "'Inter', sans-serif"
   }, [mode, lang])
 
   const toggleMode = () => setMode(m => m === 'dark' ? 'light' : 'dark')
