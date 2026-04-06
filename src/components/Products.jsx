@@ -34,8 +34,8 @@ function ProductCard({ icon, name, size, perLabel, statusIn, statusLow, statusOu
         <span className="stock-count">{count}</span>
         <span className={`stock-label ${lang === 'ar' ? 'ar' : ''}`}>{stockLabel}</span>
       </div>
-      <button className={`book-btn ${lang === 'ar' ? 'ar' : ''}`} onClick={onBook}>{bookLabel}</button>
-      <button className="wa-btn" onClick={onWA}>
+      <button className={`book-btn ${lang === 'ar' ? 'ar' : ''}`} onClick={onBook} disabled={count === 0}>{bookLabel}</button>
+      <button className="wa-btn" onClick={onWA} disabled={count === 0}>
         {WA_ICON}
         <span className={lang === 'ar' ? 'ar' : ''}>{waLabel}</span>
       </button>

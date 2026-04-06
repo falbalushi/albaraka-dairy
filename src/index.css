@@ -315,6 +315,7 @@ body {
   transition: background 0.3s, transform 0.15s;
 }
 .book-btn:hover { background: var(--gold2); transform: scale(1.02); }
+.book-btn:disabled, .wa-btn:disabled { opacity: 0.35; cursor: not-allowed; transform: none; pointer-events: none; }
 
 .wa-btn {
   width: 100%; margin-top: 8px;
