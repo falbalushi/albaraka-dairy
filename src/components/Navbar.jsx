@@ -10,7 +10,7 @@ const AlbarakaLogo = () => (
   <img
     src="/logo.png"
     alt="Albaraka Dairy Farm"
-    style={{ width: '72px', height: '72px', objectFit: 'contain', flexShrink: 0, filter: 'drop-shadow(0 2px 6px rgba(0,0,0,0.18))' }}
+    style={{ width: '90px', height: '90px', objectFit: 'contain', flexShrink: 0, mixBlendMode: 'multiply' }}
   />
 )
 

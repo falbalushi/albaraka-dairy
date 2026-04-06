@@ -76,7 +76,7 @@ export default function Hero({ t, lang, mode }) {
           src="/logo.png"
           alt="Albaraka Dairy Farm"
           onError={(e) => { e.target.style.display = 'none' }}
-          style={{ width: '160px', height: '160px', marginBottom: '1rem', filter: 'drop-shadow(0 4px 16px rgba(0,0,0,0.4))' }}
+          style={{ width: '200px', height: '200px', marginBottom: '1rem', mixBlendMode: 'multiply' }}
         />
         <div className={`hero-badge ${lang === 'ar' ? 'ar' : ''}`}>{t.badge}</div>
         <h1 className="hero-title" style={{ textShadow: mode === 'dark' ? '0 2px 12px rgba(0,0,0,0.8)' : '0 2px 8px rgba(0,0,0,0.15)' }}>
