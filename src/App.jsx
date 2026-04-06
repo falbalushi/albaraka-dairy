@@ -11,11 +11,36 @@ const PHONE = '96899364699'
 export default function App() {
   const [mode, setMode]       = useState('dark')   // 'dark' | 'light'
   const [lang, setLang]       = useState('en')      // 'en' | 'ar'
-  const [stock, setStock]     = useState({ milk: 24, laban: 8 })
+  const [stock, setStock]     = useState({ milk: 0, laban: 0 })
   const [modal, setModal]     = useState(null)      // null | 'milk' | 'laban'
   const [toast, setToast]     = useState('')
 
   const t = translations[lang]
+
+  const SHEET_CSV = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vTr29HzTx_HMUqvrhmze2Lo3uXMQubtT7uFJFuShkebMpVdVicoe5IjFWShvasz-5DgzRH9cVjiW223/pub?gid=0&single=true&output=csv'
+
+  // Fetch stock from Google Sheets
+  useEffect(() => {
+    const fetchStock = () => {
+      fetch(SHEET_CSV)
+        .then(r => r.text())
+        .then(csv => {
+          const rows = csv.trim().split('\n')
+          const data = {}
+          rows.forEach(row => {
+            const [name, qty] = row.split(',')
+            if (name && qty) data[name.trim().toLowerCase()] = parseInt(qty.trim(), 10)
+          })
+          if (!isNaN(data.milk) && !isNaN(data.laban)) {
+            setStock({ milk: data.milk, laban: data.laban })
+          }
+        })
+        .catch(() => {})
+    }
+    fetchStock()
+    const interval = setInterval(fetchStock, 60000) // refresh every 60 seconds
+    return () => clearInterval(interval)
+  }, [])
 
   // Apply theme class to <html> and direction to <body>
   useEffect(() => {
