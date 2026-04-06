@@ -38,7 +38,7 @@ export default function App() {
         .catch(() => {})
     }
     fetchStock()
-    const interval = setInterval(fetchStock, 60000) // refresh every 60 seconds
+    const interval = setInterval(fetchStock, 10000) // refresh every 10 seconds
     return () => clearInterval(interval)
   }, [])
 
