@@ -7,14 +7,15 @@ export default function Hero({ t, lang, mode }) {
     document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })
 
   return (
-    <section style={{ position: 'relative', minHeight: '90vh', display: 'flex', alignItems: 'center', justifyContent: 'center', overflow: 'hidden' }}>
+    <section style={{ position: 'relative', minHeight: '100svh', display: 'flex', alignItems: 'center', justifyContent: 'center', overflow: 'hidden' }}>
 
       {/* Farm background image */}
       <div style={{
         position: 'absolute', inset: 0,
         backgroundImage: 'url(/farm.jpg)',
         backgroundSize: 'cover',
-        backgroundPosition: 'center',
+        backgroundPosition: 'center center',
+        backgroundRepeat: 'no-repeat',
         transition: 'filter 0.8s ease',
         filter: mode === 'dark' ? 'brightness(0.35) saturate(0.6)' : 'brightness(1) saturate(1.05)',
       }} />
