@@ -338,14 +338,18 @@ export default function Hero({ t, lang, mode }) {
               <rect x="250" y="548" width="26" height="18" rx="4" fill={window} />
 
               {/* ─ flag pole ─ */}
-              <line x1="220" y1="340" x2="220" y2="440" stroke={isLight ? '#8B7355' : '#4A3820'} strokeWidth="3" />
-              {/* Omani flag: red body with white khanjar stripe, green stripe */}
-              <rect x="220" y="340" width="48" height="34" fill="#DB161B" rx="1" />
-              <rect x="220" y="352" width="48" height="10" fill="#FFFFFF" />
-              <rect x="220" y="362" width="16" height="12" fill="#008000" />
-              {/* tiny khanjar symbol suggestion */}
-              <line x1="228" y1="354" x2="228" y2="362" stroke="#DB161B" strokeWidth="1.5" />
-              <path d="M225,356 Q228,352 231,356" stroke="#DB161B" strokeWidth="1" fill="none" />
+              <line x1="220" y1="330" x2="220" y2="440" stroke={isLight ? '#8B7355' : '#4A3820'} strokeWidth="3" />
+              {/* Omani flag: vertical red stripe on left, then 3 horizontal stripes (white, red, green) */}
+              {/* Full flag background — red */}
+              <rect x="220" y="330" width="54" height="36" fill="#DB161B" rx="1" />
+              {/* White horizontal stripe (top third of right portion) */}
+              <rect x="232" y="330" width="42" height="12" fill="#FFFFFF" />
+              {/* Red horizontal stripe (middle third of right portion) */}
+              <rect x="232" y="342" width="42" height="12" fill="#DB161B" />
+              {/* Green horizontal stripe (bottom third of right portion) */}
+              <rect x="232" y="354" width="42" height="12" fill="#008000" />
+              {/* Vertical red stripe on the left */}
+              <rect x="220" y="330" width="12" height="36" fill="#DB161B" />
 
               {/* ─ fort base / ground line ─ */}
               <rect x="50" y="625" width="282" height="8" rx="2" fill={isLight ? '#8B7040' : '#2A1808'} opacity="0.5" />
