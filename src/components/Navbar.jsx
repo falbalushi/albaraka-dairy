@@ -7,11 +7,33 @@ const WA_ICON = (
 )
 
 const AlbarakaLogo = () => (
-  <img
-    src="/logo.png"
-    alt="Albaraka Dairy Farm"
-    style={{ width: '100px', height: '100px', objectFit: 'contain', flexShrink: 0 }}
-  />
+  <svg width="48" height="48" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" style={{ flexShrink: 0 }}>
+    {/* Outer gold ring */}
+    <circle cx="24" cy="24" r="23" fill="none" stroke="#C9980A" strokeWidth="2" />
+    <circle cx="24" cy="24" r="20" fill="#1a1208" />
+    {/* Buffalo silhouette */}
+    <g fill="#C9980A">
+      {/* Body */}
+      <ellipse cx="24" cy="28" rx="10" ry="7" />
+      {/* Hump */}
+      <ellipse cx="20" cy="22" rx="5" ry="4" />
+      {/* Head */}
+      <ellipse cx="31" cy="23" rx="5" ry="4" />
+      {/* Horn left */}
+      <path d="M28 20 Q25 14 28 12 Q30 15 30 20Z" />
+      {/* Horn right */}
+      <path d="M34 20 Q37 14 34 12 Q32 15 32 20Z" />
+      {/* Legs */}
+      <rect x="16" y="33" width="2.5" height="6" rx="1" />
+      <rect x="20" y="34" width="2.5" height="5" rx="1" />
+      <rect x="26" y="34" width="2.5" height="5" rx="1" />
+      <rect x="30" y="33" width="2.5" height="6" rx="1" />
+      {/* Tail */}
+      <path d="M14 26 Q10 24 11 28" stroke="#C9980A" strokeWidth="1.5" fill="none" strokeLinecap="round" />
+    </g>
+    {/* Ground line */}
+    <line x1="8" y1="39" x2="40" y2="39" stroke="#C9980A" strokeWidth="0.8" strokeOpacity="0.5" />
+  </svg>
 )
 
 export default function Navbar({ t, lang, setLang, mode, toggleMode }) {
@@ -21,6 +43,10 @@ export default function Navbar({ t, lang, setLang, mode, toggleMode }) {
     <nav className="navbar">
       <div className="logo-row">
         <AlbarakaLogo />
+        <div>
+          <div className={`logo-name ${lang === 'ar' ? 'ar' : ''}`}>{t.logoName}</div>
+          <div className={`logo-tag ${lang === 'ar' ? 'ar' : ''}`}>{t.logoTag}</div>
+        </div>
       </div>
 
       <div className="nav-right">
