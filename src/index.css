@@ -174,36 +174,47 @@ body {
 :root.dark  .toggle-thumb { left: 34px; }
 
 /* ─── HERO ───────────────────────────────────────── */
-.hero {
-  min-height: 90vh; display: flex; align-items: center;
-  justify-content: center; text-align: center;
-  padding: 3rem 2rem; position: relative; overflow: hidden;
-  background: var(--hero-grad); transition: background 0.5s;
-}
-.stars {
-  position: absolute; inset: 0; pointer-events: none;
-  opacity: var(--stars-opacity); transition: opacity 0.6s;
-}
-.star {
-  position: absolute; background: #fff;
-  border-radius: 50%; animation: twinkle 3s ease-in-out infinite;
-}
-@keyframes twinkle { 0%,100%{opacity:0.2;} 50%{opacity:1;} }
+/* The hero section itself is now fully controlled via inline styles in Hero.jsx */
+/* These keyframes power the farm scene animations */
 
-.sun-glow {
-  position: absolute; width: 320px; height: 320px; border-radius: 50%;
-  top: -120px; left: 50%; transform: translateX(-50%);
-  background: radial-gradient(circle, #FFD700 0%, #FFA500 30%, transparent 70%);
-  opacity: var(--sun-glow); filter: blur(40px);
-  pointer-events: none; transition: opacity 0.6s;
+/* Twinkling stars */
+@keyframes twinkle {
+  0%, 100% { opacity: 0.15; transform: scale(0.85); }
+  50%       { opacity: 1;    transform: scale(1.15); }
 }
-.float-orb {
-  position: absolute; border-radius: 50%;
-  animation: floatOrb 7s ease-in-out infinite;
+
+/* Sun ray slow rotation */
+@keyframes sunRotate {
+  from { transform: rotate(0deg);   }
+  to   { transform: rotate(360deg); }
 }
-.orb1 { width: 280px; height: 280px; top: -60px; left: -80px; background: var(--orb1); animation-delay: 0s; }
-.orb2 { width: 180px; height: 180px; bottom: 20px; right: -40px; background: var(--orb2); animation-delay: 3s; }
-@keyframes floatOrb { 0%,100%{transform:translateY(0) scale(1);} 50%{transform:translateY(-22px) scale(1.05);} }
+
+/* Cloud drift across screen */
+@keyframes cloudDrift {
+  0%   { transform: translateX(0)    scaleX(var(--cloud-scale, 1)); }
+  100% { transform: translateX(110vw) scaleX(var(--cloud-scale, 1)); }
+}
+
+/* Buffalo subtle grazing / breathing motion */
+@keyframes buffaloGraze {
+  0%, 100% { transform: translateY(0)   rotate(0deg);  }
+  25%       { transform: translateY(-3px) rotate(0.4deg); }
+  75%       { transform: translateY(2px)  rotate(-0.3deg); }
+}
+.buffalo-graze {
+  animation: buffaloGraze 3.5s ease-in-out infinite;
+}
+
+/* Palm frond gentle sway */
+@keyframes palmSway {
+  0%, 100% { transform: rotate(0deg)    skewX(0deg);  }
+  30%       { transform: rotate(4deg)   skewX(1.5deg); }
+  70%       { transform: rotate(-3deg)  skewX(-1deg); }
+}
+.palm-fronds {
+  animation: palmSway 4s ease-in-out infinite;
+  transform-origin: center bottom;
+}
 
 .hero-inner { position: relative; z-index: 2; max-width: 680px; }
 .hero-badge {
