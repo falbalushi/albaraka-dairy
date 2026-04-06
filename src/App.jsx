@@ -17,28 +17,28 @@ export default function App() {
 
   const t = translations[lang]
 
-  const SHEET_CSV = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vTr29HzTx_HMUqvrhmze2Lo3uXMQubtT7uFJFuShkebMpVdVicoe5IjFWShvasz-5DgzRH9cVjiW223/pub?gid=0&single=true&output=csv'
+  const SHEET_ID = '1OhDDI3Xiwb2pVtQUmvue8NjLi8d56aBrrrv82OtLSvY'
+  const API_KEY  = 'AIzaSyAY8ncDPVyL-CJ9u-itPjlsixq9HCghXWU'
 
-  // Fetch stock from Google Sheets
+  // Fetch stock from Google Sheets API (no caching)
   useEffect(() => {
     const fetchStock = () => {
-      fetch(SHEET_CSV)
-        .then(r => r.text())
-        .then(csv => {
-          const rows = csv.trim().split('\n')
-          const data = {}
-          rows.forEach(row => {
-            const [name, qty] = row.split(',')
-            if (name && qty) data[name.trim().toLowerCase()] = parseInt(qty.trim(), 10)
+      fetch(`https://sheets.googleapis.com/v4/spreadsheets/${SHEET_ID}/values/Sheet1!A1:B10?key=${API_KEY}`)
+        .then(r => r.json())
+        .then(data => {
+          const rows = data.values || []
+          const stock = {}
+          rows.forEach(([name, qty]) => {
+            if (name && qty) stock[name.trim().toLowerCase()] = parseInt(qty.trim(), 10)
           })
-          if (!isNaN(data.milk) && !isNaN(data.laban)) {
-            setStock({ milk: data.milk, laban: data.laban })
+          if (!isNaN(stock.milk) && !isNaN(stock.laban)) {
+            setStock({ milk: stock.milk, laban: stock.laban })
           }
         })
         .catch(() => {})
     }
     fetchStock()
-    const interval = setInterval(fetchStock, 10000) // refresh every 10 seconds
+    const interval = setInterval(fetchStock, 10000)
     return () => clearInterval(interval)
   }, [])
 
