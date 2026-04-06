@@ -35,7 +35,7 @@ export default function Contact({ t, lang }) {
         </div>
         <div className="contact-item">
           <div className={`contact-label ${lang === 'ar' ? 'ar' : ''}`}>{t.label2}</div>
-          <div className="contact-val">Muscat, Oman</div>
+          <div className="contact-val">Muscat, Oman <span style={{ fontSize: '0.85em', opacity: 0.75 }}>(Rumais)</span></div>
           <div className={`contact-muted ${lang === 'ar' ? 'ar' : ''}`}>{t.muted2}</div>
         </div>
         <div className="contact-item">
