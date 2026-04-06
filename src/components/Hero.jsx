@@ -68,8 +68,8 @@ export default function Hero({ t, lang, mode }) {
         background: mode === 'dark'
           ? 'rgba(5,5,20,0.55)'
           : 'rgba(255,255,255,0.45)',
-        backdropFilter: 'blur(4px)',
-        WebkitBackdropFilter: 'blur(4px)',
+        backdropFilter: 'none',
+        WebkitBackdropFilter: 'none',
         borderRadius: '24px',
         border: mode === 'dark'
           ? '1px solid rgba(232,168,48,0.2)'
