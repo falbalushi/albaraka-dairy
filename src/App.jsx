@@ -17,22 +17,22 @@ export default function App() {
 
   const t = translations[lang]
 
-  const SHEET_ID = '1OhDDI3Xiwb2pVtQUmvue8NjLi8d56aBrrrv82OtLSvY'
-  const API_KEY  = 'AIzaSyAY8ncDPVyL-CJ9u-itPjlsixq9HCghXWU'
+  const SHEET_CSV = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vTr29HzTx_HMUqvrhmze2Lo3uXMQubtT7uFJFuShkebMpVdVicoe5IjFWShvasz-5DgzRH9cVjiW223/pub?gid=0&single=true&output=csv'
 
-  // Fetch stock from Google Sheets API (no caching)
+  // Fetch stock from Google Sheets CSV with cache-busting
   useEffect(() => {
     const fetchStock = () => {
-      fetch(`https://sheets.googleapis.com/v4/spreadsheets/${SHEET_ID}/values/Sheet1!A1:B10?key=${API_KEY}`)
-        .then(r => r.json())
-        .then(data => {
-          const rows = data.values || []
-          const stock = {}
-          rows.forEach(([name, qty]) => {
-            if (name && qty) stock[name.trim().toLowerCase()] = parseInt(qty.trim(), 10)
+      fetch(`${SHEET_CSV}&t=${Date.now()}`)
+        .then(r => r.text())
+        .then(csv => {
+          const rows = csv.trim().split('\n')
+          const data = {}
+          rows.forEach(row => {
+            const [name, qty] = row.split(',')
+            if (name && qty) data[name.trim().toLowerCase()] = parseInt(qty.trim(), 10)
           })
-          if (!isNaN(stock.milk) && !isNaN(stock.laban)) {
-            setStock({ milk: stock.milk, laban: stock.laban })
+          if (!isNaN(data.milk) && !isNaN(data.laban)) {
+            setStock({ milk: data.milk, laban: data.laban })
           }
         })
         .catch(() => {})
