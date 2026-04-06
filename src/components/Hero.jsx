@@ -337,28 +337,6 @@ export default function Hero({ t, lang, mode }) {
               <rect x="250" y="510" width="26" height="22" rx="4" fill={window} />
               <rect x="250" y="548" width="26" height="18" rx="4" fill={window} />
 
-              {/* ─ flag pole ─ */}
-              <line x1="220" y1="330" x2="220" y2="440" stroke={isLight ? '#8B7355' : '#4A3820'} strokeWidth="3" />
-              {/* Omani flag: vertical red stripe on left, then 3 horizontal stripes (white, red, green) */}
-              {/* Full flag background — red */}
-              <rect x="220" y="330" width="54" height="36" fill="#DB161B" rx="1" />
-              {/* White horizontal stripe (top third of right portion) */}
-              <rect x="232" y="330" width="42" height="12" fill="#FFFFFF" />
-              {/* Red horizontal stripe (middle third of right portion) */}
-              <rect x="232" y="342" width="42" height="12" fill="#DB161B" />
-              {/* Green horizontal stripe (bottom third of right portion) */}
-              <rect x="232" y="354" width="42" height="12" fill="#008000" />
-              {/* Vertical red stripe on the left */}
-              <rect x="220" y="330" width="12" height="36" fill="#DB161B" />
-              {/* Khanjar emblem on red stripe */}
-              {/* Khanjar (curved dagger) */}
-              <path d="M226,334 Q229,340 227,346 Q225,350 226,354" stroke="#FFFFFF" strokeWidth="1.2" fill="none" strokeLinecap="round" />
-              {/* Dagger handle */}
-              <line x1="225" y1="334" x2="227" y2="334" stroke="#FFFFFF" strokeWidth="1.5" strokeLinecap="round" />
-              {/* Crossed swords - left sword */}
-              <line x1="221" y1="337" x2="231" y2="347" stroke="#FFFFFF" strokeWidth="0.9" strokeLinecap="round" />
-              {/* Crossed swords - right sword */}
-              <line x1="231" y1="337" x2="221" y2="347" stroke="#FFFFFF" strokeWidth="0.9" strokeLinecap="round" />
 
               {/* ─ fort base / ground line ─ */}
               <rect x="50" y="625" width="282" height="8" rx="2" fill={isLight ? '#8B7040' : '#2A1808'} opacity="0.5" />
