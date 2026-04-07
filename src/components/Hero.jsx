@@ -610,28 +610,36 @@ export default function Hero({ t, lang, mode }) {
 
       </svg>
 
-      {/* ── DESKTOP text content (centered glass box) ── */}
+      {/* ── DESKTOP text content (directly over scene) ── */}
       <div className="hero-desktop-content" style={{
         position: 'relative', zIndex: 10,
         maxWidth: '700px', textAlign: 'center',
-        padding: '2.5rem 2rem',
-        background: mode === 'dark' ? 'rgba(5,5,20,0.55)' : 'rgba(255,255,255,0.45)',
-        borderRadius: '24px',
-        border: mode === 'dark' ? '1px solid rgba(232,168,48,0.2)' : '1px solid rgba(255,255,255,0.6)',
-        boxShadow: mode === 'dark' ? '0 8px 48px rgba(0,0,0,0.6)' : '0 8px 48px rgba(0,0,0,0.15)',
-        transition: 'background 0.8s, border-color 0.8s, box-shadow 0.8s',
-        backdropFilter: 'blur(8px)',
-        WebkitBackdropFilter: 'blur(8px)',
+        padding: '2rem',
       }}>
         <div className={`hero-badge ${lang === 'ar' ? 'ar' : ''}`}>{t.badge}</div>
-        <h1 className="hero-title" style={{ textShadow: mode === 'dark' ? '0 2px 12px rgba(0,0,0,0.8)' : '0 2px 8px rgba(0,0,0,0.15)' }}>
+        <h1 className="hero-title" style={{ textShadow: '0 2px 20px rgba(0,0,0,0.9), 0 4px 40px rgba(0,0,0,0.6)', color: '#fff' }}>
           {t.heroTitle1} <span className="accent">{t.heroAccent}</span>
           <br />{t.heroTitle2}
         </h1>
-        <p className={`hero-sub ${lang === 'ar' ? 'ar' : ''}`}>{t.heroSub}</p>
+        <p className={`hero-sub ${lang === 'ar' ? 'ar' : ''}`} style={{ color: 'rgba(255,255,255,0.9)', textShadow: '0 1px 8px rgba(0,0,0,0.8)' }}>{t.heroSub}</p>
         <div className="hero-btns">
           <button className="btn-primary" onClick={scrollToProducts}>{t.heroBtnPrimary}</button>
-          <button className="btn-secondary" onClick={scrollToContact}>{t.heroBtnSecondary}</button>
+          <button className="btn-secondary" style={{ color: '#fff', borderColor: 'rgba(255,255,255,0.6)' }} onClick={scrollToContact}>{t.heroBtnSecondary}</button>
+        </div>
+      </div>
+
+      {/* ── Scroll down arrow ── */}
+      <div className="hero-desktop-content" style={{
+        position: 'absolute', bottom: '2rem', left: '50%',
+        transform: 'translateX(-50%)', zIndex: 10,
+        display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '4px',
+        cursor: 'pointer', opacity: 0.8,
+      }} onClick={scrollToProducts}>
+        <span style={{ fontSize: '11px', color: '#fff', textShadow: '0 1px 4px rgba(0,0,0,0.8)', letterSpacing: '1px', textTransform: 'uppercase' }}>Scroll</span>
+        <div style={{ animation: 'scrollBounce 1.5s ease-in-out infinite' }}>
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+            <path d="M12 5v14M5 12l7 7 7-7" stroke="#fff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ filter: 'drop-shadow(0 1px 4px rgba(0,0,0,0.8))' }} />
+          </svg>
         </div>
       </div>
 
