@@ -4,7 +4,6 @@ import Hero from './components/Hero'
 import Story from './components/Story'
 import WhyUs from './components/WhyUs'
 import Products from './components/Products'
-import Testimonials from './components/Testimonials'
 import Contact from './components/Contact'
 import BookingModal from './components/BookingModal'
 import translations from './translations'
@@ -95,8 +94,6 @@ export default function App() {
         onBook={(product) => setModal(product)}
         onWA={handleQuickWA}
       />
-
-      <Testimonials lang={lang} />
 
       <Contact t={t} lang={lang} />
 
