@@ -9,7 +9,7 @@ const WA_ICON = (
 
 const AlbarakaLogo = () => (
   <img
-    src="/logo.png"
+    src="/Logo.png"
     alt="Albaraka Dairy Farm"
     style={{ width: '64px', height: '64px', objectFit: 'contain', flexShrink: 0 }}
   />
