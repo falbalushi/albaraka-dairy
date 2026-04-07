@@ -7,17 +7,25 @@ const WA_ICON = (
 )
 
 
+const AlbarakaLogo = () => (
+  <img
+    src="/logo.png"
+    alt="Albaraka Dairy Farm"
+    style={{ width: '64px', height: '64px', objectFit: 'contain', flexShrink: 0 }}
+  />
+)
+
 export default function Navbar({ t, lang, setLang, mode, toggleMode }) {
   const scrollTo = (id) => document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' })
 
   return (
     <nav className="navbar">
       <div className="logo-row">
-        <img
-          src="/logo.png"
-          alt="Albaraka Dairy Farm"
-          style={{ width: '90px', height: '90px', objectFit: 'contain', flexShrink: 0 }}
-        />
+        <AlbarakaLogo />
+        <div>
+          <div className={`logo-name ${lang === 'ar' ? 'ar' : ''}`}>{t.logoName}</div>
+          <div className={`logo-tag ${lang === 'ar' ? 'ar' : ''}`}>{t.logoTag}</div>
+        </div>
       </div>
 
       <div className="nav-right">
